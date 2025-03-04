@@ -1,12 +1,23 @@
-const homePage = (req, res) => {
-    res.send("This is my Home page");
-};
 
-const aboutPage = (req, res) => {
-    res.send("This is my About page");
+const homePage =  (req, res) => {
+  res.send('Hello World, This is home router');
 };
-
+ 
+const profilePage = (req, res) => {
+  res.send('Hello World, This is profile router');
+};
+ 
+const loginPage =  (req, res) => {
+  res.send('Hello World, This is login router');
+};
+ 
+const logoutPage =  (req, res) => {
+  res.send('Hello World, This is logout router');
+};
+ 
 module.exports = {
     homePage,
-    aboutPage
+    profilePage,
+    loginPage,
+    logoutPage
 };
