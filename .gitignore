@@ -1,0 +1,33 @@
+# General Node.js ignores
+
+node_modules/         # Node.js dependencies
+dist/                # Bundled/compiled files (if you use a bundler)
+build/               # Build output directory
+coverage/            # Test coverage reports
+.DS_Store            # macOS folder settings
+
+# Environment variables
+
+.env                # Sensitive environment variables (DO NOT commit!)
+.env.local          # Local environment overrides (DO NOT commit!)
+
+# Logs and temporary files
+
+npm-debug.log*      # npm debug logs
+yarn-debug.log*     # Yarn debug logs
+yarn-error.log*     # Yarn error logs
+
+# IDEs and Editors
+
+.idea/              # IntelliJ IDEA project files
+.vscode/            # VS Code settings
+*.suo               # Visual Studio solution user options
+*.njsproj           # Visual Studio Node.js project files
+*.sln               # Visual Studio solution file
+*.swp               # Swap files for Vim
+*.swo               # Swap files for Vim
+*~                  # Backup files for various editors
+
+# Packages
+
+packages/*/node_modules
