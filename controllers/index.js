@@ -23,5 +23,6 @@ module.exports = {
     homePage,
     profilePage,
     loginPage,
-    logoutPage
+    logoutPage,
+    contacts
 };

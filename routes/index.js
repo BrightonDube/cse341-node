@@ -9,6 +9,8 @@ router.get('/profile', lesson1Controller.profilePage);
 router.get('/login', lesson1Controller.loginPage);
  
 router.get('/logout', lesson1Controller.logoutPage);
+
+router.get('/contacts', lesson1Controller.contacts);
  
 
 
