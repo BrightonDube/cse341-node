@@ -14,6 +14,10 @@ const loginPage =  (req, res) => {
 const logoutPage =  (req, res) => {
   res.send('Hello World, This is logout router');
 };
+
+const contacts = (req, res) => {
+  res.send('Hello World, This is contacts router');
+  };
  
 module.exports = {
     homePage,
