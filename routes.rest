@@ -13,7 +13,7 @@ GET http://localhost:3000/contacts/invalid-id
 GET https://cse341-node-hctg.onrender.com/contacts
 
 ### Get Contact by ID
-
+@contactId = 67d0376ae0160fa2dc407c25
 GET https://cse341-node-hctg.onrender.com/contacts/{{contactId}}
 
 ### Get Contact by Invalid ID (to test 404)
