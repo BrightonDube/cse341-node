@@ -7,9 +7,11 @@ const app = express();
 const port = process.env.PORT || 5000;
 const mongodbAtlasUri = process.env.MONGODB_ATLAS_URI;
 
-app.use('/', router);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/', router);
 
 // Connect to the database
 const start = async () => {
