@@ -3,7 +3,9 @@ const router = express.Router();
 const lesson1Controller = require('../controllers');
 const contactsRoutes = require('./contacts');
 
- 
+router.get('/', (req, res) => {
+    res.send("Welcome")
+}); 
 router.get('/home', lesson1Controller.homePage);
  
 router.get('/profile', lesson1Controller.profilePage);

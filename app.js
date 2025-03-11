@@ -7,6 +7,7 @@ const connectDB = require('./db/connect');
 const app = express();
 const port = process.env.PORT || 5000;
 const mongodbAtlasUri = process.env.MONGODB_ATLAS_URI;
+// const Contact = require('./models/Contact');
 
 //console.log("mongodbAtlasUri:", mongodbAtlasUri);
 app.use(express.json());
@@ -28,3 +29,19 @@ const start = async () => {
 };
 
 start();
+// const contact = new Contact({
+//     firstName: "John",
+//     lastName: "Smith",
+//     email: "smit@gmail.com",
+//     favoriteColor: "black",
+//     birthday: "25-02-1988"
+// });
+// contact.save();
+// const contact1 = new Contact({
+//     firstName: "Jane",
+//     lastName: "Doe",
+//     email: "doe@gmail.com",
+//     favoriteColor: "brown",
+//     birthday: "24-02-1990"
+// });
+// contact1.save();
