@@ -3,8 +3,10 @@ const Contact = require('../models/Contact');
 
 const getAllContacts = async (req, res) => {
   try {
-    const contacts = await Contact.find({});  
-    res.status(200).json({ contacts });  
+    const contacts = await Contact.find();
+    res.json(contacts);
+    console.log("Contacts from DB:", contacts); 
+    //res.status(200).json({ contacts });  
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error - could not retrieve contacts' });

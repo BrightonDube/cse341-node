@@ -3,20 +3,16 @@ const mongoose = require('mongoose');
 const ContactSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: [true, 'must provide first name'],
-    trim: true,
-    maxlength: [20, 'first name can not be more than 20 characters'],
+    required: [true, 'must provide first name']    
   },
   lastName: {
     type: String,
-    required: [true, 'must provide last name'],
-    trim: true,
-    maxlength: [20, 'last name can not be more than 20 characters'],
+    required: [true, 'must provide last name']
+    
   },
   email: {
     type: String,
-    required: [true, 'must provide email'],
-    trim: true,
+    required: [true, 'must provide email']
   },
   favoriteColor: {
     type: String,
@@ -24,7 +20,7 @@ const ContactSchema = new mongoose.Schema({
     required: [true, 'must provide favorite color'],
   },
   birthday: {
-    type: Date,
+    type: String,
     required: [true, 'must provide birthday']
   }
 });
