@@ -1,0 +1,21 @@
+### Get All Contacts
+GET http://localhost:3000/contacts
+
+### Get Contact by ID
+@contactId = 67d0376ae0160fa2dc407c25  
+
+GET http://localhost:3000/contacts/{{contactId}}
+
+### Get Contact by Invalid ID (to test 404)
+GET http://localhost:3000/contacts/invalid-id
+
+### Get All Contacts
+GET https://cse341-node-hctg.onrender.com/contacts
+
+### Get Contact by ID
+
+GET https://cse341-node-hctg.onrender.com/contacts/{{contactId}}
+
+### Get Contact by Invalid ID (to test 404)
+GET https://cse341-node-hctg.onrender.com/contacts/invalid-id
+
