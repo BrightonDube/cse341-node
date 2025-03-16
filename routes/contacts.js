@@ -11,8 +11,13 @@ router.get('/:id', contactsController.getContactById);
 
 //add a new contact
 router.post('/', contactsController.addContact);
+
 // update contact
 router.put('/:id', contactsController.updateContact);
+
+//patch contact
+router.patch('/:id', contactsController.patchContact);
+
 //delete contact
 router.delete('/:id', contactsController.deleteContact);
 
