@@ -1,20 +1,10 @@
-const express = require('express');
+import express from "express";
+import contactsRoutes from "../routes/contacts.js";
 const router = express.Router();
-const lesson1Controller = require('../controllers');
-const contactsRoutes = require('./contacts');
+router.get("/", (req, res) => {
+  res.send("Welcome");
+});
 
-router.get('/', (req, res) => {
-    res.send("Welcome")
-}); 
-router.get('/home', lesson1Controller.homePage);
- 
-router.get('/profile', lesson1Controller.profilePage);
- 
-router.get('/login', lesson1Controller.loginPage);
- 
-router.get('/logout', lesson1Controller.logoutPage);
+router.use("/contacts", contactsRoutes);
 
-router.use('/contacts', contactsRoutes);
-
-
-module.exports = router; 
+export default router;

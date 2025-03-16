@@ -1,10 +1,8 @@
-const Contact = require("../models/Contact");
+import Contact from "../models/Contact.js";
 
 const getAllContacts = async (req, res) => {
   try {
     const contacts = await Contact.find();
-    //res.json(contacts);
-    //console.log("Contacts from DB:", contacts);
     res.status(200).json({ contacts });
   } catch (error) {
     console.error(error);
@@ -13,11 +11,10 @@ const getAllContacts = async (req, res) => {
       .json({ message: "Server error - could not retrieve contacts" });
   }
 };
-
+//get single contact
 const getContactById = async (req, res) => {
   try {
     const { id } = req.params;
-    //console.log({ id });
     const contact = await Contact.findById(id);
 
     if (!contact) {
@@ -32,20 +29,57 @@ const getContactById = async (req, res) => {
       .json({ message: "Server error - could not retrieve contact" });
   }
 };
+//add contact
 const addContact = async (req, res) => {
   try {
     const newContact = new Contact(req.body);
-    newContact.save();
-    res.status(201).json({ message: "Contact added successfully" });
-    res.send(newContact.id);
+    await newContact.save();
+    res
+      .status(201)
+      .json({ message: "Contact added successfully", id: newContact._id });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error - could not add contact" });
   }
 };
+//update contact
+const updateContact = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedContact = await Contact.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    res
+      .status(200)
+      .json({
+        message: "Contact updated successfully",
+        contact: updatedContact,
+      });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Server error - could not update contact" });
+  }
+};
+// delete contact
+const deleteContact = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Contact.findByIdAndDelete(id);
+    res.status(200).json({ message: "Contact deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Server error - could not delete contact" });
+  }
+};
 
-module.exports = {
+export default {
   getAllContacts,
   getContactById,
   addContact,
+  updateContact,
+  deleteContact
 };

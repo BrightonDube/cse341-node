@@ -1,7 +1,13 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose";
 
-const connectDB = async (url) => {
-    return mongoose.connect(url)
-}
+const ContactSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  email: String,
+  favoriteColor: String,
+  birthday: String, // Changed to String
+});
 
-module.exports = connectDB
+const Contact = mongoose.model("Contact", ContactSchema);
+
+export default Contact;

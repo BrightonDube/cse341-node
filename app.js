@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const mongodbAtlasUri = process.env.MONGODB_ATLAS_URI;
+const mongodbAtlasUri = process.env.MONGODB_ATLAS_URI.trim();
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,8 +18,14 @@ app.use("/", router);
 // Connect to the database
 const start = async () => {
   try {
-    await connectDB(mongodbAtlasUri);
-    console.log("Connected to MongoDB Atlas");
+    console.log(
+      "Starting the database connection, we will show status later.  Check your mongodDB server is on",
+    );
+    let signal = await connectDB(mongodbAtlasUri);
+    console.log(`The signal to the database is  ${signal}`);
+    console.log(
+      "Connected to MongoDB Atlas, database connection has been verified",
+    );
     app.listen(port, () => {
       console.log(`Web Server is listening at port ${port}`);
     });
