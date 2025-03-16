@@ -9,7 +9,48 @@ GET http://localhost:3000/contacts/{{contactId}}
 ### Get Contact by Invalid ID (to test 404)
 GET http://localhost:3000/contacts/invalid-id
 
-### Get All Contacts
+### Create Contact - Evelyn Reed
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Evelyn",
+  "lastName": "Reed",
+  "email": "evelyn.reed@email.com",
+  "favoriteColor": "purple",
+  "birthday": "1992-08-15"
+}
+### PUT - Update Contact 
+@contactIdMikePut = 67d68e24ff95e62ccfaed3e4
+PUT http://localhost:3000/contacts/{{contactIdMikePut}}
+Content-Type: application/json
+Accept: application/json
+
+{
+   "firstName": "Mikes",
+   "lastName": "Chenna",
+   "email": "mike.chen@sample.com",
+   "favoriteColor": "blue",
+   "birthday": "1987-03-20"
+}
+
+### PATCH - Partially Update Contact 
+@contactIdPatch = 67d038aca064c2b44770875d
+PATCH http://localhost:3000/contacts/{{contactIdPatch}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "favoriteColor": "brown"  
+}
+
+### DELETE - Delete a Contact - Evelyn Reed
+@contactIdDelete = 67d69087ff95e62ccfaed3ee
+
+DELETE http://localhost:3000/contacts/{{contactIdDelete}}
+
+
+### Get All Contacts remote.
 GET https://cse341-node-hctg.onrender.com/contacts
 
 ### Get Contact by ID
@@ -18,4 +59,42 @@ GET https://cse341-node-hctg.onrender.com/contacts/{{contactId}}
 
 ### Get Contact by Invalid ID (to test 404)
 GET https://cse341-node-hctg.onrender.com/contacts/invalid-id
+### Create Contact - Evelyn Reed
+POST https://cse341-node-hctg.onrender.com/contacts
+Content-Type: application/json
 
+{
+  "firstName": "Evelyn",
+  "lastName": "Reed",
+  "email": "evelyn.reed@email.com",
+  "favoriteColor": "purple",
+  "birthday": "1992-08-15"
+}
+### PUT - Update Contact 
+@contactIdMikePut = 67d68e24ff95e62ccfaed3e4
+PUT https://cse341-node-hctg.onrender.com/contacts/{{contactIdMikePut}}
+Content-Type: application/json
+Accept: application/json
+
+{
+   "firstName": "Mikes",
+   "lastName": "Chennai",
+   "email": "mike.chen@sample.com",
+   "favoriteColor": "blue",
+   "birthday": "1987-03-20"
+}
+
+### PATCH - Partially Update Contact 
+@contactIdPatch = 67d74bb65e0e826894ae6533
+PATCH https://cse341-node-hctg.onrender.com/contacts/67d038aca064c2b44770875d
+Content-Type: application/json
+Accept: application/json
+
+{
+  "favoriteColor": "browns"  
+}
+
+### DELETE - Delete a Contact - Evelyn Reed
+@contactIdDelete = 67d69087ff95e62ccfaed3ee
+
+DELETE https://cse341-node-hctg.onrender.com/contacts/{{contactIdDelete}}

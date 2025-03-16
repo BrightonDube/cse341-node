@@ -47,8 +47,7 @@ const updateContact = async (req, res) => {
   try {
     const { id } = req.params;
     const updatedContact = await Contact.findByIdAndUpdate(id, req.body, {
-      new: true,
-    });
+      new: true});
     res
       .status(200)
       .json({
@@ -76,22 +75,19 @@ const deleteContact = async (req, res) => {
   }
 };
 
-const patchContact = (req, res) => {
-  const { id } = req.params;
-  const { name, email, phone } = req.body;
-  Contact.findByIdAndUpdate(id, { name, email, phone }, { new: true }, (err,
-    updatedContact) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).json({ message: 'Failed to update contact.' });
-      }
+const patchContact = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedContact = await Contact.findByIdAndUpdate(id, req.body, { new: true });
+    if (!updatedContact) {
+      return res.status(404).json({ message: "Contact not found" });
+    }
+    res.status(200).json({ message: "Contact updated successfully", contact: updatedContact });
 
-      if (!updatedContact) {
-        return res.status(404).json({ message: 'Contact not found.' });
-      }
-
-      return res.status(200).json(updatedContact);
-    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error - could not update contact" });
+  }    
 };
 
 export default {

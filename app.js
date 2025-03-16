@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 const mongodbAtlasUri = process.env.MONGODB_ATLAS_URI.trim();
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", router);
 
