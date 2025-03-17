@@ -30,6 +30,40 @@ const getContactById = async (req, res) => {
   }
 };
 //add contact
+
+/**
+ * @swagger
+ * /contacts/:
+ *   post:
+ *     description: Create a new contact
+ *     parameters:
+ *       - in: body
+ *         name: contact
+ *         description: Contact data to be added
+ *         required: true
+ *         schema:
+ *           type: object
+ *           required:
+ *             - firstName
+ *             - lastName
+ *             - email
+ *           properties:
+ *             firstName:
+ *               type: string
+ *             lastName:
+ *               type: string
+ *             email:
+ *               type: string
+ *             favoriteColor:
+ *               type: string
+ *             birthday:
+ *               type: string
+ *     responses:
+ *       201:
+ *         description: Created
+ *       500:
+ *         description: Internal Server Error
+ */
 const addContact = async (req, res) => {
   try {
     const newContact = new Contact(req.body);

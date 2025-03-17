@@ -12,7 +12,7 @@ const mongodbAtlasUri = process.env.MONGODB_ATLAS_URI.trim();
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use((req, res) => {
+app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
